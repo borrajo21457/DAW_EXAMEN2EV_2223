@@ -22,7 +22,7 @@ namespace LotoClassNS
 
         
         /// <summary>
-        /// Metodo que genera un array aleatorio  de numeros
+        /// Constructor que genera un array aleatorio  de numeros
         /// <remarks>En el caso de que el constructor sea vacío, se genera una combinación aleatoria correcta </remarks>
         /// </summary>
         public loto()
@@ -49,7 +49,7 @@ namespace LotoClassNS
 
         
         /// <summary>
-        /// metodo donde generamos los numeros de usuario
+        /// Contructor donde generamos los numeros de usuario
         /// </summary>
         /// <param name="misnums">parametro de entrada  array de enteros con la combinación  que genera el usuario</param>
 
