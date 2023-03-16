@@ -33,7 +33,8 @@ namespace LotoClassNS
 
             do             // generamos la combinación
             {                       
-                numero = r.Next(NUMERO_MENOR, NUMERO_MAYOR + 1);     // generamos un número aleatorio del 1 al 49
+                numero = r.Next(NUMERO_MENOR, NUMERO_MAYOR + 1);
+                // generamos un número aleatorio del 1 al 49
                 for (j= 0; j<i; j++)    // comprobamos que el número no está
                     if (Nums[j]==numero)
                         break;
@@ -55,8 +56,10 @@ namespace LotoClassNS
 
         public loto(int[] misnums)  
         {
-            for (int i=0; i<MAX_NUMEROS; i++)
-                if (misnums[i]>= NUMERO_MENOR && misnums[i]<=NUMERO_MAYOR) {
+            for (int i=0; i< MAX_NUMEROS; i++)
+
+                if (misnums[i]>= NUMERO_MENOR && misnums[i]<= NUMERO_MAYOR)
+                {
                     int j;
                     for (j=0; j<i; j++) 
                         if (misnums[i]==Nums[j])
