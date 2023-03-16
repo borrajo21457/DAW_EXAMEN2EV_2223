@@ -20,8 +20,11 @@ namespace LotoClassNS
             set => listanumeros = value; 
         }
 
-        // En el caso de que el constructor sea vacío, se genera una combinación aleatoria correcta
-        //
+        
+        /// <summary>
+        /// Metodo que genera un array aleatorio  de numeros
+        /// <remarks>En el caso de que el constructor sea vacío, se genera una combinación aleatoria correcta </remarks>
+        /// </summary>
         public loto()
         {
             Random r = new Random();    // clase generadora de números aleatorios
@@ -44,9 +47,13 @@ namespace LotoClassNS
             ok = true;
         }
 
-        // La segunda forma de crear una combinación es pasando el conjunto de números
-        // misnums es un array de enteros con la combinación que quiero crear (no tiene porqué ser válida)
-        public loto(int[] misnums)  // misnumeros: combinación con la que queremos inicializar la clase
+        
+        /// <summary>
+        /// metodo donde generamos los numeros de usuario
+        /// </summary>
+        /// <param name="misnums">parametro de entrada  array de enteros con la combinación  que genera el usuario</param>
+
+        public loto(int[] misnums)  
         {
             for (int i=0; i<MAX_NUMEROS; i++)
                 if (misnums[i]>=NUMERO_MENOR && misnums[i]<=NUMERO_MAYOR) {
@@ -70,9 +77,14 @@ namespace LotoClassNS
 	          ok=true;
         }
 
-        // Método que comprueba el número de aciertos
-        // premi es un array con la combinación ganadora
-        // se devuelve el número de aciertos
+
+       
+
+        /// <summary>
+        /// Método que comprueba el número de aciertos
+        /// </summary>
+        /// <param name="premi">array con la combinación ganadora</param>
+        /// <returns>se devuelve el número de aciertos</returns>
         public int Comprobar(int[] premi)
         {
             int a=0;                    // número de aciertos
