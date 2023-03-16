@@ -11,12 +11,12 @@ using LotoClassNS;
 
 namespace ExamenLoto
 {
-    public partial class Form1 : Form
+    public partial class Examen2EVOBG2223 : Form
     {
         public loto miLoto, miGanadora;
         private TextBox[] combinacion = new TextBox[6]; // Estos arrays se usan para recorrer de manera más sencilla los controles
         private TextBox[] ganadora = new TextBox[6];
-        public Form1()
+        public Examen2EVOBG2223()
         {
             InitializeComponent();
             combinacion[0] = txtNumero1; ganadora[0] = txtGanadora1;
@@ -61,7 +61,7 @@ namespace ExamenLoto
                 nums = new int[6];
                 for (int i = 0; i < 6; i++)
                     nums[i] = Convert.ToInt32(combinacion[i].Text);
-                int aciertos = miGanadora.comprobar(nums);
+                int aciertos = miGanadora.Comprobar(nums);
                 if (aciertos < 3)
                     MessageBox.Show("No ha resultado premiada");
                 else
