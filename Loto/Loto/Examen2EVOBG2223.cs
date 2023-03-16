@@ -40,23 +40,29 @@ namespace ExamenLoto
 
         private void btValidar_Click(object sender, EventArgs e)
         {
-            int[] nums = new int[6];    
-            for (int i = 0; i < 6; i++)
-                nums[i] = Convert.ToInt32(combinacion[i].Text);
+            int[] nums = Convertir();
+
             miLoto = new loto(nums);
-            if (miLoto.ok)
+            if (miLoto.validacion)
                 MessageBox.Show("Combinación válida");
             else
                 MessageBox.Show("Combinación no válida");
         }
 
-        private void btComprobar_Click(object sender, EventArgs e)
+        private int[] Convertir()
         {
             int[] nums = new int[6];
             for (int i = 0; i < 6; i++)
                 nums[i] = Convert.ToInt32(combinacion[i].Text);
+            return nums;
+        }
+
+        private void btComprobar_Click(object sender, EventArgs e)
+        {
+            int[] nums = Convertir();
+
             miLoto = new loto(nums);
-            if (miLoto.ok)
+            if (miLoto.validacion)
             {
                 nums = new int[6];
                 for (int i = 0; i < 6; i++)

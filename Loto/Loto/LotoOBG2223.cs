@@ -12,7 +12,7 @@ namespace LotoClassNS
         public const int NUMERO_MAYOR = 49;
         
         private int[] listanumeros = new int[MAX_NUMEROS];   // numeros de la combinación
-        public bool ok = false;      // combinación válida (si es aleatoria, siempre es válida, si no, no tiene porqué)
+        public bool validacion = false;      // combinación válida (si es aleatoria, siempre es válida, si no, no tiene porqué)
 
         public int[] Nums
         { 
@@ -29,22 +29,22 @@ namespace LotoClassNS
         {
             Random r = new Random();    // clase generadora de números aleatorios
 
-            int i= 0, j, num;
+            int i= 0, j, numero;
 
             do             // generamos la combinación
             {                       
-                num = r.Next(NUMERO_MENOR, NUMERO_MAYOR + 1);     // generamos un número aleatorio del 1 al 49
+                numero = r.Next(NUMERO_MENOR, NUMERO_MAYOR + 1);     // generamos un número aleatorio del 1 al 49
                 for (j= 0; j<i; j++)    // comprobamos que el número no está
-                    if (Nums[j]==num)
+                    if (Nums[j]==numero)
                         break;
                 if (i==j)               // Si i==j, el número no se ha encontrado en la lista, lo añadimos
                 {
-                    Nums[i]= num;
+                    Nums[i]= numero;
                     i++;
                 }
             } while (i< MAX_NUMEROS);
 
-            ok = true;
+            validacion = true;
         }
 
         
@@ -56,7 +56,7 @@ namespace LotoClassNS
         public loto(int[] misnums)  
         {
             for (int i=0; i<MAX_NUMEROS; i++)
-                if (misnums[i]>=NUMERO_MENOR && misnums[i]<=NUMERO_MAYOR) {
+                if (misnums[i]>= NUMERO_MENOR && misnums[i]<=NUMERO_MAYOR) {
                     int j;
                     for (j=0; j<i; j++) 
                         if (misnums[i]==Nums[j])
@@ -65,16 +65,16 @@ namespace LotoClassNS
                         Nums[i]=misnums[i]; // validamos la combinación
                     else
                     {
-                        ok=false;
+                        validacion=false;
                         return;
                     }
                 }
                 else
                 {
-                    ok=false;     // La combinación no es válida, terminamos
+                    validacion=false;     // La combinación no es válida, terminamos
                     return;
                 }
-	          ok=true;
+	          validacion=true;
         }
 
 
@@ -87,11 +87,16 @@ namespace LotoClassNS
         /// <returns>se devuelve el número de aciertos</returns>
         public int Comprobar(int[] premi)
         {
-            int a=0;                    // número de aciertos
+            int m=0;                    // número de aciertos
             for (int i=0; i<MAX_NUMEROS; i++)
-                for (int j=0; j<MAX_NUMEROS; j++)
-                    if (premi[i]==Nums[j]) a++;
-            return a;
+            {
+                for (int j = 0; j < MAX_NUMEROS; j++)
+                {
+                    if (premi[i] == Nums[j])
+                        m++;
+                }                   
+            }                
+            return m;
         }
     }
 
